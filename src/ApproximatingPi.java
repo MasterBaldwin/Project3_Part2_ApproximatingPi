@@ -7,15 +7,13 @@ public class ApproximatingPi {
 public static void main(String[] args) {
     long divCount, time;
     double pi;
-    String tempString;
 
-    tempString = JOptionPane.showInputDialog(
+    divCount = Long.parseLong(JOptionPane.showInputDialog(
             null,
             "Enter a number of divisions\n" +
                     "(The more divisions the closer the approximation)",
             "Approximating Pi",
-            JOptionPane.QUESTION_MESSAGE);
-    divCount = Long.parseLong(tempString);
+            JOptionPane.QUESTION_MESSAGE));
     time = System.currentTimeMillis();
     pi = LeibnizMethod(divCount);
     time = System.currentTimeMillis() - time;
@@ -36,11 +34,10 @@ private static double LeibnizMethod(long divCount) {
     denominator = 3.0;
 
     for (long i = 0; i < divCount; i++) {
-        if ((i % 2) == 0) {
+        if ((i % 2) == 0)
             tempVar -= 1.0 / denominator;
-        } else {
+        else
             tempVar += 1.0 / denominator;
-        }
         denominator += 2.0;
     }
 
